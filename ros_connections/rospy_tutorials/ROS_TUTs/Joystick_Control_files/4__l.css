@@ -1,0 +1,48 @@
+
+
+/* DO NOT EDIT */
+@media (min-width: 1510px) {	
+
+/*        5 x 320        */
+
+
+#header, #headervert {		}
+
+.inner {  max-width:; }
+
+/* layout */
+
+
+
+  .columnv { float: left; }
+  .columnvx { float: right; display:inline-block; width: 45%; min-width:640px; }
+  
+  .columnv.full {  }
+  
+  .columnv.two-thirds {  }
+  .columnv.third {  }  
+
+  .columnv.half {  }
+  
+  .columnv.fourth { }
+  
+  .columnv.main { width: 54.5%; min-width:760px; }
+  .columnv.rbox { width: 45%; min-width:640px;  }
+  .columnv.mainw { width: 54.5%; min-width:760px; }
+  .columnvx.rboxw { width: 45%; min-width:640px;  } 
+  .columnvx.rbox { width: 45%;  }
+  
+  .columnv.flow-opposite { } 
+    
+  .nested    {  }        
+  .nestedr, nestedr2    {   } 
+   
+    
+	.L0 a {  width: 110px;  }  
+	
+.youtube-player {width:100%; height:500px; }
+
+
+  
+  
+}

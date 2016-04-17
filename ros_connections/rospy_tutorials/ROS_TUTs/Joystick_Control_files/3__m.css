@@ -1,0 +1,66 @@
+
+
+/* DO NOT EDIT */
+@media (min-width: 1380px) {	
+
+/*        4 x 320        */
+
+
+#header, #headervert {		}
+
+.inner {  max-width:; }
+
+/* layout */
+
+
+
+  .columnv { float: left; }
+  .columnvx { float: right; display:inline-block; width: 55%; min-width:640px; }
+  
+  .columnv.full { width: 100%; }
+  
+  .columnv.two-thirds { width: 66.666%; }
+  .columnv.third { width: 33.333%; }
+  
+  .columnv.half { width: 50%; }
+
+  .columnv.fourth { width: 25%; }
+  
+/*  .columnv.main { width: 45%; min-width:560px; } 
+  .columnv.rbox { width: 55%; min-width:640px;  } 
+  .columnv.mainw { width: 45%; min-width:560px; }
+  .columnvx.rboxw { width: 55%; min-width:640px; }  
+  .columnvx.rbox { width: 55%;  }
+*/    
+  .columnv.main { width: 50%; min-width:640px; } 
+  .columnv.rbox { width: 50%; min-width:640px;  } 
+  .columnv.mainw { width: 50%; min-width:640px; }
+  .columnvx.rboxw { width: 50%; min-width:640px; }  
+  .columnvx.rbox { width: 50%;  }
+  
+  .columnv.flow-opposite { float: right; } 
+    
+  .nested    {  float: left; width: 50%; }     
+  .nestedw    {  float: left; width: 50%;  }      
+  .nestedr, nestedr2    {   float: right; width: 100%; } 
+  
+    
+	.L0 a {  width: 100px;  } 
+	
+.youtube-player {width:100%; height:480px; }
+
+.subheadertopics a { width:25%;}	
+
+
+
+.rbjwthumbfix {max-width:470px;}
+
+
+
+
+
+
+
+
+
+}
