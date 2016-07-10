@@ -7,18 +7,17 @@ d3 ... d5 correspond to the orientation of rotation phi, theta, psi (around x, y
 d6 corresponds to the frame. If 0 then global frame, if 1 then local frame.
 """
 import numpy as np
-from geometry_msgs import msg
+from math import radians
+from geometry_msgs.msg import Quaternion, Point, Pose
 from tf.transformations import quaternion_from_euler
 from nav_msgs.msg import Odometry
-
+from RosUtils import messageUtil
 class Goal:
 
     def __init__(self, *vec):
-        self.x, self.y ,self.z , self.phi, self.theta, self.psi = map(float,vec[:6])
         self.frame = (vec[6] == 'local')
-        pos = msg.Vector3(x=self.x, y=self.y, z=self.z)
-        ang = quaternion_from_euler(self.phi, self.theta, self.psi)
-        self.pose = msg.Pose(position=pos,orientation=ang)
+        self.pose = messageUtil.buildPose(vec[:6])
 
     def __repr__(self):
         return str(self.pose) + "\n" + "Frame: " + str("Local" if self.frame else "Global")
+

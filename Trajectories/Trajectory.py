@@ -1,3 +1,7 @@
 class Trajectory:
-    def __init__(self,goal):
-        self.goal = goal
+    def __init__(self,points):
+        self.points = points
+        d = []
+
+    def getNextPoint(self):
+        return self.points.pop()

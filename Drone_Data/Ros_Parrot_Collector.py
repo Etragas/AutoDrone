@@ -1,39 +1,55 @@
-import sys
+import numpy as np
 import rospy
-from rospy_tutorials.msg import HeaderString
-from std_msgs.msg import *
+from geometry_msgs.msg import Pose, Twist
 from nav_msgs.msg import Odometry
-from ardrone_autonomy import msg
-import threading
-import time
 
 
 def callback(data, obj):
-    obj.position = data.pose.pose
-#    print(type(val))
-#    print(data.pose.pose)
+    """
+    Data is an Odometry object
+    :param data: Odometry with twist and pose
+    :param obj: The drone
+    :return:
+    """
+    dp = data.pose.pose.position
+    do = data.pose.pose.orientation
+    daccel = data.twist.twist.linear
+    dang = data.twist.twist.angular
+    obj.pose.position = np.asarray([dp.x, dp.y, dp.z], dtype=np.float64)
+    obj.pose.orientation = np.asarray([do.x, do.y, do.z, do.w], dtype=np.float64)
+    obj.twist.linear = np.asarray([daccel.x, daccel.y, daccel.z], dtype=np.float64)
+    obj.twist.angular = np.asarray([dang.x, dang.y, dang.z], dtype=np.float64)
+
 
 class Ros_Parrot_Collector:
-
-    def __init__(self,Name = "Collector", topic = "ardrone/odometry"):
-        self.position = 0
+    def __init__(self, Name="Collector", topic="/ground_truth/state"):
+        self.pose = Pose()
+        self.twist = Twist()
         self.name = Name
         self.topic = topic
 
-
     def start(self):
-        self.listen_to_topic(self.name,self.topic)
+        self.listen_to_topic(self.name, self.topic)
 
     def getPose(self):
-        return self.position
+        return self.pose
 
+    def getPosition(self):
+        return self.pose.position
 
+    def getOrientation(self):
+        return self.pose.orientation
 
-    def listen_to_topic(self,NAME,topic_name):
+    def getAngular(self):
+        return self.twist.angular
+
+    def getLinear(self):
+        return self.twist.linear
+
+    def listen_to_topic(self, NAME, topic_name):
         global rospy
-        rospy.Subscriber(topic_name, Odometry, callback,self)
+        rospy.Subscriber(topic_name, Odometry, callback, self)
         print("Meow")
         rospy.spin()
 
-
-#listen_to_topic("ardrone/odometry")
+# listen_to_topic("ardrone/odometry")

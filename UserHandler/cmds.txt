@@ -1,1 +1,3 @@
 SetGoal:Goal
+Takeoff:Empty
+Land:Empty

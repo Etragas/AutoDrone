@@ -1,2 +1,2 @@
-import Trajectory
-import No_Map_Trajectory
+from Trajectory import *
+from No_Map_Trajectory import *
